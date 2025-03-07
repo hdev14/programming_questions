@@ -27,7 +27,7 @@ function isUnique(input: string): boolean {
   return true;
 }
 
-test("Is unique tests", () => {
+test("is unique", () => {
   const failure = [
     "Apple",
     "Letter",
