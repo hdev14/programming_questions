@@ -19,7 +19,6 @@
   "homepage": "https://github.com/hdev14/programming_questions#readme",
   "devDependencies": {
     "@types/node": "^22.13.9",
-    "tsx": "^4.19.3",
-    "typescript": "^5.8.2"
+    "tsx": "^4.19.3"
   }
 }
