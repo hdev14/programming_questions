@@ -30,7 +30,7 @@ function checkPermutation(first_word: string, second_word: string): boolean {
   return sortWord(first_word) === sortWord(second_word);
 }
 
-test("check permutations", () => {
+test("check permutation", () => {
   const words_with_permutations = {
     "Stop": ["Spot", "Post", "Pots", "Tops", "Opts"],
     "Care": ["Race", "Acre", "Earc"],
@@ -44,6 +44,19 @@ test("check permutations", () => {
     "Drawer": ["Reward", "Warder"],
   };
 
+  const words_without_permutations = {
+    "Stop": ["test"],
+    "Care": ["test"],
+    "Listen": ["test"],
+    "Earth": ["test"],
+    "Stressed": ["test"],
+    "Evil": ["test"],
+    "Act": ["test"],
+    "God": ["test"],
+    "Flow": ["test"],
+    "Drawer": ["test"],
+  }
+
   const keys = Object.keys(words_with_permutations);
 
   for (let idx = 0; idx < keys.length; idx++) {
@@ -51,6 +64,14 @@ test("check permutations", () => {
     const words = words_with_permutations[word];
     for (let h = 0; h < words.length; h++) {
       assert.equal(checkPermutation(word, words[h]), true);
+    }
+  }
+
+  for (let idx = 0; idx < keys.length; idx++) {
+    const word = keys[idx];
+    const words = words_without_permutations[word];
+    for (let h = 0; h < words.length; h++) {
+      assert.equal(checkPermutation(word, words[h]), false);
     }
   }
 })
