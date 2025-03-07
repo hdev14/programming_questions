@@ -1,0 +1,25 @@
+{
+  "name": "programming_questions",
+  "version": "1.0.0",
+  "description": "A collection of programming questions/answers implemented with typescript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --import tsx --test ./**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hdev14/programming_questions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hdev14/programming_questions/issues"
+  },
+  "homepage": "https://github.com/hdev14/programming_questions#readme",
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
