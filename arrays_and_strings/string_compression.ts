@@ -9,9 +9,21 @@ import test from "node:test";
  */
 
 function compress(str: string): string {
-  return '';
+  let compressed_str = '';
+
+  for (let idx = 0, count = 0; idx < str.length; idx++) {
+    const char = str[idx];
+    count++;
+
+    if ((idx + 1 >= str.length) || (char !== str[idx + 1])) {
+      compressed_str += char + count.toString();
+      count = 0; // reset
+    }
+  }
+
+  return compressed_str.length < str.length ? compressed_str : str;
 }
 
 test("string compression", () => {
-  assert.equal(true, true);
+  assert.equal(compress("aabcccccaaa"), "a2b1c5a3");
 });
