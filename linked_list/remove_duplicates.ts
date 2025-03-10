@@ -3,7 +3,7 @@ import test from "node:test";
 import { createLinkedList, LinkedListNode, linkedListToArray } from "./create_linked_list";
 
 /**
- * Remove Dups: Write code to remove duplicates from an unsorted linked list.
+ * Remove Duplicates: Write code to remove duplicates from an unsorted linked list.
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 function removeDuplicates(node: LinkedListNode) {
