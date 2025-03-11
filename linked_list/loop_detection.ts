@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import test from "node:test";
-import { createLinkedList, LinkedListNode } from "./linked_list";
+import { LinkedListNode } from "./linked_list";
 
 /**
  * Loop Detection: Given a circular linked list, implement an algorithm that returns the node at the
@@ -15,16 +15,47 @@ import { createLinkedList, LinkedListNode } from "./linked_list";
  * Output:C
  */
 function detect(node?: LinkedListNode) {
+  let slow_runner: LinkedListNode | undefined = node;
+  let fast_runner: LinkedListNode | undefined = node;
 
-  return null;
+  while (fast_runner !== undefined && fast_runner!.next !== undefined) {
+    slow_runner = slow_runner!.next;
+    fast_runner = fast_runner!.next.next;
+    if (slow_runner === fast_runner) {
+      break;
+    }
+  }
+
+  if (fast_runner === undefined || fast_runner.next === undefined) {
+    return null;
+  }
+
+  slow_runner = node;
+
+  while (slow_runner !== fast_runner) {
+    slow_runner = slow_runner!.next;
+    fast_runner = fast_runner!.next;
+  }
+
+  return slow_runner;
 }
 
 
 
 test("loop detection", () => {
-  const linked_list1 = createLinkedList<number>([1, 2, 4, 5, 6, 7, 2, 1]);
-  const linked_list2 = createLinkedList<number>([1, 2, 4, 5, 6, 7, 2, 1]);
+  const node1 = new LinkedListNode(1);
+  const node2 = new LinkedListNode(2);
+  const node3 = new LinkedListNode(3);
+  const node4 = new LinkedListNode(4);
+  const node5 = new LinkedListNode(5);
+  node1.next = node2;
+  node2.next = node3;
+  node3.next = node4;
+  node4.next = node5;
+  node5.next = node3;
 
-  assert.equal(linked_list1, linked_list2);
+  const result = detect(node1);
+
+  assert.equal(result!.value, 3);
 });
 
