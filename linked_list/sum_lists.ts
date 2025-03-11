@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import test from "node:test";
-import { createLinkedList, LinkedListNode } from "./create_linked_list";
+import { createLinkedList, LinkedListNode, linkedListToArray } from "./linked_list";
 
 /**
  * Sum Lists: You have two numbers represented by a linked list, where each node contains a single
@@ -16,13 +16,38 @@ import { createLinkedList, LinkedListNode } from "./create_linked_list";
  * Input: (6 -> 1 -> 7) + (2 -> 9 -> 5).That is,617 + 295.
  * Output: 9 -> 1 -> 2.That is, 912.
  */
-function sum(node: LinkedListNode) {
-  return 0;
+function sumLists(first_node?: LinkedListNode, second_node?: LinkedListNode, carry = 0) {
+  if (first_node === undefined && second_node === undefined && carry === 0) {
+    return undefined;
+  }
+
+  const new_node = new LinkedListNode(0);
+  let value = carry;
+  if (first_node !== undefined) {
+    value += first_node.value;
+  }
+
+  if (second_node !== undefined) {
+    value += second_node.value;
+  }
+
+  new_node.value = value % 10;
+
+  new_node.next = sumLists(
+    first_node !== undefined ? first_node.next : undefined,
+    second_node !== undefined ? second_node.next : undefined,
+    parseInt((value / 10).toString(), 10),
+  );
+
+  return new_node;
 }
 
 test("sum lists", () => {
-  const linked_list = createLinkedList<number>([1, 2, 4, 5, 6, 7, 2, 1]);
+  const first_linked_list = createLinkedList<number>([7, 1, 6]);
+  const second_linked_list = createLinkedList<number>([5, 9, 2]);
 
-  assert(true);
+  const result_linked_list = sumLists(first_linked_list, second_linked_list);
+
+  assert.deepEqual(linkedListToArray(result_linked_list!), [2, 1, 9]);
 });
 

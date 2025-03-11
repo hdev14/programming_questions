@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import test from "node:test";
-import { createLinkedList, LinkedListNode, linkedListToArray } from "./create_linked_list";
+import { createLinkedList, LinkedListNode, linkedListToArray } from "./linked_list";
 
 /**
  * Partition: Write code to partition a linked list around a value x, such that all nodes less than x come

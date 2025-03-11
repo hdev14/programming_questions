@@ -1,6 +1,6 @@
 import assert from "node:assert";
 import test from "node:test";
-import { createLinkedList, LinkedListNode, linkedListToArray } from "./create_linked_list";
+import { createLinkedList, LinkedListNode, linkedListToArray } from "./linked_list";
 
 /**
  * Remove Duplicates: Write code to remove duplicates from an unsorted linked list.

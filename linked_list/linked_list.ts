@@ -1,6 +1,6 @@
 export class LinkedListNode<T = any> {
   next?: LinkedListNode;
-  constructor(readonly value: T) { }
+  constructor(public value: T) { }
 }
 
 
