@@ -1,8 +1,17 @@
 export class LinkedListNode<T = any> {
-  next?: LinkedListNode;
+  next: LinkedListNode | undefined;
   constructor(public value: T) { }
 }
 
+export function calculcateLength(node: LinkedListNode) {
+  let length = 0;
+  let next: LinkedListNode | undefined = node;
+  while (next) {
+    length++;
+    next = next.next;
+  }
+  return length;
+}
 
 export function linkedListToArray(node: LinkedListNode) {
   const array: Array<any> = [];
