@@ -8,6 +8,10 @@ export default class Stack {
     this.#values = new Array(this.#stack_capacity);
   }
 
+  get capacity() {
+    return this.#stack_capacity
+  }
+
   get size() {
     return this.#size;
   }
