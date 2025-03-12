@@ -66,6 +66,16 @@ class SetOfStack {
 
     return this.#stacks[this.#stacks.length - 1];
   }
+
+  isEmpty() {
+    const last_stack = this.getLastStack();
+    return last_stack == null || last_stack.isEmpty();
+  }
+
+  isFull() {
+    const last_stack = this.getLastStack();
+    return last_stack == null || last_stack.isFull();
+  }
 }
 
 test("stack of plates", () => {
