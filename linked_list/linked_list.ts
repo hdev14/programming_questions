@@ -1,6 +1,6 @@
 export class LinkedListNode<T = any> {
   next: LinkedListNode | undefined;
-  constructor(public value: T) { }
+  constructor(public value?: T) { }
 }
 
 export function calculcateLength(node: LinkedListNode) {

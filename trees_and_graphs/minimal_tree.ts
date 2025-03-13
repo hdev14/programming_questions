@@ -1,7 +1,6 @@
 import assert from "node:assert";
 import test from "node:test";
 import TreeNode from "./tree";
-import assert from "node:assert";
 
 /**
  * Minimal Tree: Given a sorted (increasing order) array with unique integer elements, write an
