@@ -25,7 +25,6 @@ class Dog extends Animal { }
 
 class Cat extends Animal { }
 
-
 class Shelter {
   #dogs: Dog[] = [];
   #cats: Cat[] = [];
