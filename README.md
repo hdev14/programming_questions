@@ -1,2 +1,1 @@
-# programming_questions
-A collection of programming questions/answers implemented with typescript.
+To execute the programing questions just use the command `npm run test`.
